@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1587650938 source:c:\labi\123\svg.cpp
+	"svg.h"
+	<iostream>
+	<vector>
+
+1587650952 c:\labi\123\svg.h
+	<string>
+	<vector>
+
+1587650908 source:c:\labi\123\test2.cpp
+	"histogram.h"
+	"svg.h"
+	<cassert>
+
+1586530028 c:\labi\123\histogram.h
+	<vector>
+	<string>
+
