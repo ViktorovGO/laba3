@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1586530028 source:c:\labi\123\histogram.cpp
+	"histogram.h"
+	<string>
+	<vector>
+	<iostream>
+
+1586530028 c:\labi\123\histogram.h
+	<vector>
+	<string>
+
+1587728254 source:c:\labi\123\test_fm1.cpp
+	"histogram.h"
+	<cassert>
+
