@@ -29,22 +29,27 @@ vector<size_t> make_histogram(size_t count,const vector<double>& numbers)
     }
     return bins;
 }
-
+struct Input
+{vector<double>numbers;
+size_t bin_count;
+};
+Input read_input(istream& in)
+{
+ Input data;
+ cerr << "Enter number count: ";
+ size_t number_count;
+ cin >> number_count;
+ cerr <<"Enter numbers:";
+ data.numbers = input_numbers(in,number_count);
+ size_t bin_count;
+ cin >>data.bin_count;
+ return data;
+ }
 int main()
 {   double BIN_HEIGHT=0;
-
-    size_t number_count;
-    cerr << "Enter number count: ";
-    cin >> number_count;
-
-    cerr << "Enter numbers: ";
-    const auto numbers = input_numbers(cin,number_count);
-    size_t bin_count;
-    cerr << "Enter column count: ";
-    cin >> bin_count;
-
-
-    const auto bins =make_histogram(bin_count,numbers);
+    Input data;
+    data=read_input(cin);
+    const auto bins =make_histogram(data.bin_count,data.numbers);
     cin_height(BIN_HEIGHT);
     show_histogram_svg(bins,BIN_HEIGHT);
     return 0;
