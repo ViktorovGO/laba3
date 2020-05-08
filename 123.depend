@@ -9,17 +9,17 @@
 	<vector>
 	<string>
 
-1586530028 source:c:\labi\123\histogram.cpp
+1587987425 source:c:\labi\123\histogram.cpp
 	"histogram.h"
 	<string>
 	<vector>
 	<iostream>
 
-1587650218 c:\labi\123\svg.h
+1587987425 c:\labi\123\svg.h
 	<string>
 	<vector>
 
-1587650423 source:c:\labi\123\svg.cpp
+1587987425 source:c:\labi\123\svg.cpp
 	"svg.h"
 	<iostream>
 	<vector>
