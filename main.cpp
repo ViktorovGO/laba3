@@ -56,8 +56,17 @@ Input read_input(istream& in,bool prompt)
  data.bin_count=bin_count;
  return data;
  }
-int main()
-{   curl_global_init(CURL_GLOBAL_ALL);
+int main(int argc,char*argv[])
+{   if(argc>1)
+    {
+        cout<<"argc="<<argc<<endl;
+        for(int i=0;i<argc;i++)
+        {
+            cout<<"argv["<<i<<"]="<<argv[i]<<endl;
+        }
+     return 0;
+    }
+    curl_global_init(CURL_GLOBAL_ALL);
     double BIN_HEIGHT=0;
     const auto Input=read_input(cin,true);
     const auto bins =make_histogram(Input);
