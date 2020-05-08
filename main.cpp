@@ -2,7 +2,7 @@
 #include <vector>
 #include "histogram.h"
 #include "svg.h"
-
+#include <curl/curl.h>
 using namespace std;
 struct Input
 {vector<double>numbers;
@@ -57,7 +57,8 @@ Input read_input(istream& in,bool prompt)
  return data;
  }
 int main()
-{   double BIN_HEIGHT=0;
+{   curl_global_init(CURL_GLOBAL_ALL);
+    double BIN_HEIGHT=0;
     const auto Input=read_input(cin,true);
     const auto bins =make_histogram(Input);
     cin_height(BIN_HEIGHT);
