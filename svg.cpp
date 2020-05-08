@@ -23,14 +23,7 @@ void svg_rect(double x, double y, double width, double height,string stroke = "b
 {
     cout<<"<rect x='"<<x<<"' y='"<<y<<"' width='"<<width<<"' height='"<<height<<"' stroke='"<<stroke<<"' fill='"<<fill<<"'/>";
 }
-
-void cin_height(double &BIN_HEIGHT)
-{
-
-    cin>>BIN_HEIGHT;
-
-}
-void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
+void show_histogram_svg(const vector<size_t>& bins)
 {
     string stroke;
     string fill;
@@ -40,10 +33,7 @@ void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
     const auto TEXT_BASELINE = 20;
     const auto TEXT_WIDTH = 50;
     const auto BLOCK_WIDTH = 10;
-    if(BIN_HEIGHT*bins.size()>IMAGE_HEIGHT)
-    {
-        BIN_HEIGHT=IMAGE_HEIGHT/bins.size();
-    }
+    const auto BIN_HEIGHT=30;
     svg_begin(IMAGE_WIDTH, IMAGE_HEIGHT);
     double top=0;
     for(size_t bin:bins)
