@@ -69,15 +69,19 @@ Input read_input(istream& in,bool prompt)
  Input download(const string& address)
  {
      stringstream buffer;
+     curl_off_t speed;
      CURL* curl =curl_easy_init();
         CURLcode res;
+        CURLcode downl;
         curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
         res = curl_easy_perform(curl);
+        downl= curl_easy_getinfo(curl,CURLINFO_SPEED_DOWNLOAD_T,speed);
         if(res!=CURLE_OK)
         {
-            cout<<curl_easy_strerror(curl_easy_perform(curl));
+            cout<<curl_easy_strerror(res)<<endl;
+            cerr<<"Download speed %"<<speed<<"bytes/sec\n";
             exit(1);
         }
         curl_easy_cleanup(curl);
