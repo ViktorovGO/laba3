@@ -2,7 +2,7 @@
 #include <vector>
 #include "histogram.h"
 #include "svg.h"
-
+#include <windows.h>
 using namespace std;
 vector<double> input_numbers(size_t count)
 {
@@ -45,8 +45,9 @@ int main()
 
 
     const auto bins =make_histogram(bin_count,numbers);
-    cin_height(BIN_HEIGHT);
-    show_histogram_svg(bins,BIN_HEIGHT);
+
+    show_histogram_svg(bins);
+
     return 0;
 }
 

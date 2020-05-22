@@ -1,6 +1,9 @@
 #include"svg.h"
 #include <iostream>
 #include <vector>
+#include <string>
+#include <windows.h>
+#include <sstream>
 void svg_begin(double width, double height)
 {
     cout << "<?xml version='1.0' encoding='UTF-8'?>\n";
@@ -24,13 +27,39 @@ void svg_rect(double x, double y, double width, double height,string stroke = "b
     cout<<"<rect x='"<<x<<"' y='"<<y<<"' width='"<<width<<"' height='"<<height<<"' stroke='"<<stroke<<"' fill='"<<fill<<"'/>";
 }
 
-void cin_height(double &BIN_HEIGHT)
+string
+make_info_text(double top) {
+    stringstream buffer;
+    // TODO: получить версию системы, записать в буфер.
+    // TODO: получить имя компьютера, записать в буфер.
+    DWORD dwVersion =0;
+    dwVersion =GetVersion();
+    DWORD mask = 0x0000ffff;
+    DWORD version = dwVersion & mask;
+    DWORD platform = dwVersion >>16;
+
+    DWORD build = platform;
+    DWORD dwMajorVersion = 0;
+    DWORD dwMinorVersion = 0;
+    DWORD mask_major = 0b00000000'00000000'00000000'11111111;
+    dwMajorVersion = version & mask_major;
+    dwMinorVersion = version >> 8;
+    char buffer2[MAX_COMPUTERNAME_LENGTH+1];
+    DWORD size;
+	size=sizeof(buffer2);
+    GetComputerName(buffer2,&size);
+    int q= top+50;
+    int x=20;
+    string str="Computer name:";
+    buffer<<"Windows v "<<dwMajorVersion<<"."<<dwMinorVersion<<" build("<<build<<")"<<"</text>"<< "<text x='" << x << "' y='"<<q<<"'>"<<str<<buffer2<<"</text>";
+    return buffer.str();
+}
+void svg_text2(string buffer,double top,double left)
 {
 
-    cin>>BIN_HEIGHT;
-
+ cout<< "<text x='" << left << "' y='"<<top+30<<"'>"<<buffer;
 }
-void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
+void show_histogram_svg(const vector<size_t>& bins)
 {
     string stroke;
     string fill;
@@ -40,10 +69,7 @@ void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
     const auto TEXT_BASELINE = 20;
     const auto TEXT_WIDTH = 50;
     const auto BLOCK_WIDTH = 10;
-    if(BIN_HEIGHT*bins.size()>IMAGE_HEIGHT)
-    {
-        BIN_HEIGHT=IMAGE_HEIGHT/bins.size();
-    }
+    const auto BIN_HEIGHT =30;
     svg_begin(IMAGE_WIDTH, IMAGE_HEIGHT);
     double top=0;
     for(size_t bin:bins)
@@ -53,6 +79,10 @@ void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
         svg_rect(TEXT_WIDTH,top,bin_width,BIN_HEIGHT,stroke="black",fill="black");
         top+=BIN_HEIGHT;
     }
+    string buffer;
+    buffer=make_info_text(top);
+    cout <<endl;
+    svg_text2(buffer,top,TEXT_LEFT);
     svg_end();
 }
 void show_histogram_text(const vector<size_t>& bins)
