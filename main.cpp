@@ -4,14 +4,6 @@
 #include "svg.h"
 
 using namespace std;
-void example()
-{
-  const char* name = "Commander Shepard";
-  int year = 2020;
-  printf("%s was born in %d.\n", name, year);
-  printf("n = %08x\n", 0x3564567);
-
-}
 vector<double> input_numbers(size_t count)
 {
     vector<double> result(count);
@@ -40,8 +32,7 @@ vector<size_t> make_histogram(size_t count,const vector<double>& numbers)
 
 int main()
 {   double BIN_HEIGHT=0;
-    example();
-    return 0;
+
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
@@ -56,7 +47,7 @@ int main()
     const auto bins =make_histogram(bin_count,numbers);
     cin_height(BIN_HEIGHT);
     show_histogram_svg(bins,BIN_HEIGHT);
-
+    return 0;
 }
 
 
