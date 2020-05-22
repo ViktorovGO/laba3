@@ -37,8 +37,8 @@ make_info_text(double top) {
     DWORD mask = 0x0000ffff;
     DWORD version = dwVersion & mask;
     DWORD platform = dwVersion >>16;
-
     DWORD build = platform;
+
     DWORD dwMajorVersion = 0;
     DWORD dwMinorVersion = 0;
     DWORD mask_major = 0b00000000'00000000'00000000'11111111;
