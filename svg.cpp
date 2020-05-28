@@ -24,14 +24,10 @@ void svg_rect(double x, double y, double width, double height,string stroke = "b
     cout<<"<rect x='"<<x<<"' y='"<<y<<"' width='"<<width<<"' height='"<<height<<"' stroke='"<<stroke<<"' fill='"<<fill<<"'/>";
 }
 
-void cin_height(double &BIN_HEIGHT)
-{
 
-    cin>>BIN_HEIGHT;
-
-}
 void show_histogram_svg(const vector<size_t>& bins,double &BIN_HEIGHT)
 {
+
     string stroke;
     string fill;
     const auto IMAGE_WIDTH = 400;

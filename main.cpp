@@ -29,7 +29,11 @@ vector<size_t> make_histogram(size_t count,const vector<double>& numbers)
     }
     return bins;
 }
-
+void cin_height(double &BIN_HEIGHT)
+{
+    cout<<"BIN_HEIGHT:";
+    cin>>BIN_HEIGHT;
+}
 int main()
 {   double BIN_HEIGHT=0;
 

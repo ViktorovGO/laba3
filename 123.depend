@@ -1,25 +1,25 @@
 # depslib dependency file v1.0
-1587632047 source:c:\labi\123\main.cpp
+1590686310 source:c:\labi\123\main.cpp
 	<iostream>
 	<vector>
 	"histogram.h"
 	"svg.h"
 
-1586530028 c:\labi\123\histogram.h
+1590677299 c:\labi\123\histogram.h
 	<vector>
 	<string>
 
-1586530028 source:c:\labi\123\histogram.cpp
+1590677299 source:c:\labi\123\histogram.cpp
 	"histogram.h"
 	<string>
 	<vector>
 	<iostream>
 
-1587650218 c:\labi\123\svg.h
+1590686310 c:\labi\123\svg.h
 	<string>
 	<vector>
 
-1587650423 source:c:\labi\123\svg.cpp
+1590686310 source:c:\labi\123\svg.cpp
 	"svg.h"
 	<iostream>
 	<vector>
