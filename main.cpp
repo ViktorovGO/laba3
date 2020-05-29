@@ -88,9 +88,14 @@ Input read_input(istream& in,bool prompt)
         curl_easy_cleanup(curl);
      return read_input(buffer,false);
  }
-
+void cin_height(double &BIN_HEIGHT)
+{
+    cerr<<"BIN_HEIGHT:";
+    cin>>BIN_HEIGHT;
+}
 int main(int argc,char*argv[])
 {   Input input;
+    double BIN_HEIGHT;
     if(argc>1)
     {
      input = download(argv[1]);
@@ -100,6 +105,7 @@ int main(int argc,char*argv[])
      input=read_input(cin,true);
     }
     const auto bins =make_histogram(input);
-    show_histogram_svg(bins);
+    cin_height(BIN_HEIGHT);
+    show_histogram_svg(bins,BIN_HEIGHT);
     return 0;
 }
