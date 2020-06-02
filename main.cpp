@@ -103,9 +103,9 @@ int main(int argc,char*argv[])
     else
     {
      input=read_input(cin,true);
+     cin_height(BIN_HEIGHT);
     }
     const auto bins =make_histogram(input);
-    cin_height(BIN_HEIGHT);
     show_histogram_svg(bins,BIN_HEIGHT);
     return 0;
 }
